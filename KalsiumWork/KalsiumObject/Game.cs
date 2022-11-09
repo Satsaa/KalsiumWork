@@ -12,7 +12,7 @@ using Object = UnityEngine.Object;
 
 /// <summary> The game. </summary>
 [KeepRefToken]
-public sealed class Game : Master<Game, IGameHook, Actor> {
+public sealed class Game : Master<Game, IGameHook> {
 
 	/// <summary> Currently active Game instance </summary>
 	public static Game game => Coordinator.game;
