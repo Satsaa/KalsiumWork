@@ -22,7 +22,6 @@ public abstract partial class Master<TSelf, THook> : Master
 		public void Remove() {
 			if (removed) return;
 			removed = true;
-			Hide();
 
 			master.DetachModifier(this);
 			Game.game.objects.Remove(this);
@@ -51,21 +50,10 @@ public abstract partial class Master<TSelf, THook> : Master
 
 			modifier.OnConfigureNonpersistent(true);
 			modifier.OnCreate();
-			modifier.Show();
 
 			using (var scope = new Hooks.Scope()) Game.game.hooks.ForEach<IOnModifierCreate>(scope, v => v.OnModifierCreate(modifier));
 
 			return modifier;
-		}
-
-		protected override void OnShow() {
-			//
-			base.OnShow();
-		}
-
-		protected override void OnHide() {
-			//
-			base.OnHide();
 		}
 
 	}

@@ -122,17 +122,17 @@ public class NumericDataFieldSelector {
 	}
 
 #if DEBUG // Wow so defensive
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public float GetValue(Attribute attribute) => throw new ArgumentException();
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public float GetRawValue(Attribute attribute) => throw new ArgumentException();
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public float GetOther(Attribute attribute) => throw new ArgumentException();
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public float GetRawOther(Attribute attribute) => throw new ArgumentException();
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public bool GetEnabled(Attribute attribute) => throw new ArgumentException();
-	[Obsolete("Pass the containing object instead.")]
+	[Obsolete("Pass the containing object instead.", true)]
 	public bool GetRawEnabled(Attribute attribute) => throw new ArgumentException();
 #endif
 }

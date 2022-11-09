@@ -52,16 +52,6 @@ public abstract partial class Master<TSelf, THook> : Master
 		OnRemove();
 	}
 
-	protected override void OnShow() {
-		base.OnShow();
-		//
-	}
-
-	protected override void OnHide() {
-		//
-		base.OnHide();
-	}
-
 	protected void AttachModifier(RootModifier modifier) {
 		modifiers.Add(modifier);
 		hooks.Hook(modifier);
@@ -85,7 +75,6 @@ public abstract partial class Master<TSelf, THook> : Master
 		initializer?.Invoke(master);
 
 		master.OnConfigureNonpersistent(true);
-		master.Show();
 		master.OnCreate();
 
 		return master;

@@ -27,12 +27,16 @@ public sealed class Game : Master<Game, IGameHook> {
 		hooks.Hook(this);
 	}
 
-	public void ExecuteOnUpdate() {
-		using (var scope = new Hooks.Scope()) hooks.ForEach<IOnUpdate>(scope, v => v.OnUpdate());
+	public void Init() {
+		using (var scope = new Hooks.Scope()) hooks.ForEach<IOnGameInit>(scope, v => v.OnGameInit());
 	}
 
-	public void ExecuteOnLateUpdate() {
-		using (var scope = new Hooks.Scope()) hooks.ForEach<IOnLateUpdate>(scope, v => v.OnLateUpdate());
+	public void Refresh() {
+		using (var scope = new Hooks.Scope()) hooks.ForEach<IOnRefresh>(scope, v => v.OnRefresh());
+	}
+
+	public void End() {
+		using (var scope = new Hooks.Scope()) hooks.ForEach<IOnGameEnd>(scope, v => v.OnGameEnd());
 	}
 
 	/// <summary> Removes removed KalsiumObjects from the cache and destroys them </summary>
@@ -44,38 +48,3 @@ public sealed class Game : Master<Game, IGameHook> {
 	}
 
 }
-
-#if UNITY_EDITOR
-namespace Editors {
-
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using UnityEditor;
-	using UnityEngine;
-	using static Muc.Editor.EditorUtil;
-	using static Muc.Editor.PropertyUtil;
-	using Object = UnityEngine.Object;
-
-	[CanEditMultipleObjects]
-	[CustomEditor(typeof(Game), true)]
-	public class GameEditor : Editor {
-
-		Game t => (Game)target;
-
-		public override void OnInspectorGUI() {
-			DrawDefaultInspector();
-			if (ButtonField(new("Show all"))) {
-				foreach (var dataObject in Game.game.objects.Get()) {
-					dataObject.Show();
-				}
-			}
-			if (ButtonField(new("Hide all"))) {
-				foreach (var dataObject in Game.game.objects.Get()) {
-					dataObject.Hide();
-				}
-			}
-		}
-	}
-}
-#endif

@@ -1,11 +1,11 @@
 
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using UnityEngine;
-using Object = UnityEngine.Object;
+using System.Linq;
 using Muc.Components.Extended;
 using Muc.Data;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class HookOrders : Singleton<HookOrders> {
 
@@ -91,13 +91,13 @@ public class HookOrders : Singleton<HookOrders> {
 namespace Editors {
 
 	using System;
-	using System.Linq;
 	using System.Collections.Generic;
-	using UnityEngine;
+	using System.Linq;
 	using UnityEditor;
-	using Object = UnityEngine.Object;
-	using static Muc.Editor.PropertyUtil;
+	using UnityEngine;
 	using static Muc.Editor.EditorUtil;
+	using static Muc.Editor.PropertyUtil;
+	using Object = UnityEngine.Object;
 
 	[CanEditMultipleObjects]
 	[CustomPropertyDrawer(typeof(HookOrders.DoubleValueField<,>), true)]
@@ -127,13 +127,13 @@ namespace Editors {
 namespace Editors {
 
 	using System;
-	using System.Linq;
 	using System.Collections.Generic;
-	using UnityEngine;
+	using System.Linq;
 	using UnityEditor;
-	using Object = UnityEngine.Object;
-	using static Muc.Editor.PropertyUtil;
+	using UnityEngine;
 	using static Muc.Editor.EditorUtil;
+	using static Muc.Editor.PropertyUtil;
+	using Object = UnityEngine.Object;
 
 	[CanEditMultipleObjects]
 	[CustomEditor(typeof(HookOrders), true)]

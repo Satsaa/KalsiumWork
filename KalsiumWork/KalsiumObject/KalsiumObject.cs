@@ -19,25 +19,8 @@ public abstract class KalsiumObject : ScriptableObject, IIdentifiable {
 	[field: SerializeField]
 	public bool removed { get; protected set; }
 
-	[field: SerializeField, DoNotTokenize]
-	public bool shown { get; set; }
-
 	protected virtual void OnCreate() { }
 	protected virtual void OnRemove() { }
-
-	public void Show() {
-		if (removed || shown == (shown = true)) return;
-		OnShow();
-	}
-	public void Hide() {
-		if (shown == (shown = false)) return;
-		OnHide();
-	}
-
-	/// <summary> Create all GameObject related stuff here </summary>
-	protected virtual void OnShow() { }
-	/// <summary> Remove all GameObject related stuff here </summary>
-	protected virtual void OnHide() { }
 
 	/// <summary>
 	/// Modifier is created or the scripts are reloaded.
