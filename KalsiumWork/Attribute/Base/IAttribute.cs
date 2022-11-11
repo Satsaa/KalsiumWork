@@ -1,23 +1,27 @@
 
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-using Object = UnityEngine.Object;
-using System.Collections;
+namespace Kalsium {
 
-public interface IAttribute {
+	using System;
+	using System.Collections;
+	using System.Collections.Generic;
+	using System.Linq;
+	using UnityEngine;
+	using Object = UnityEngine.Object;
 
-	string identifier { get; }
+	public interface IAttribute {
 
-	int count { get; }
+		string identifier { get; }
 
-	IReadOnlyList<Attribute.IValueContainer> GetValues();
-	Attribute.IValueContainer GetValue(int index);
-	Attribute.EnabledContainer GetEnabled();
-	Attribute.EnabledContainer SetEnabled(Attribute.EnabledContainer value);
+		int count { get; }
+
+		IReadOnlyList<Attribute.IValueContainer> GetValues();
+		Attribute.IValueContainer GetValue(int index);
+		Attribute.EnabledContainer GetEnabled();
+		Attribute.EnabledContainer SetEnabled(Attribute.EnabledContainer value);
 
 
-	string Format(bool isSource);
-	string TooltipText(IAttribute source);
+		string Format(bool isSource);
+		string TooltipText(IAttribute source);
+	}
+
 }

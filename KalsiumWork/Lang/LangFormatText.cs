@@ -1,24 +1,28 @@
 
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-using Object = UnityEngine.Object;
+namespace Kalsium {
 
-public class LangFormatText : LangText {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using UnityEngine;
+	using Object = UnityEngine.Object;
 
-	public void SetValues(params object[] values) {
-		this.values = values;
-		UpdateText();
-	}
+	public class LangFormatText : LangText {
 
-	protected override void UpdateText() {
-		if (values != null) {
-			text = String.Format(Lang.GetStr(strId), values);
-		} else {
-			base.UpdateText();
+		public void SetValues(params object[] values) {
+			this.values = values;
+			UpdateText();
 		}
+
+		protected override void UpdateText() {
+			if (values != null) {
+				text = String.Format(Lang.GetStr(strId), values);
+			} else {
+				base.UpdateText();
+			}
+		}
+
+		object[] values;
 	}
 
-	object[] values;
 }

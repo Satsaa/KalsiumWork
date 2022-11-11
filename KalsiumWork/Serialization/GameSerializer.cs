@@ -1,5 +1,5 @@
 
-namespace Serialization {
+namespace Kalsium.Serialization {
 
 	using System;
 	using System.Collections;

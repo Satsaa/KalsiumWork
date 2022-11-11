@@ -1,4 +1,8 @@
 
-public interface IIdentifiable {
-	string identifier { get; }
+namespace Kalsium {
+
+	public interface IIdentifiable {
+		string identifier { get; }
+	}
+
 }

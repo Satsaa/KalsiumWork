@@ -1,12 +1,12 @@
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Newtonsoft.Json.Linq;
-using static Serialization.GameSerializer;
+namespace Kalsium.Serialization {
 
-namespace Serialization {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Reflection;
+	using Newtonsoft.Json.Linq;
+	using static GameSerializer;
 
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Struct | AttributeTargets.Class | AttributeTargets.Field | AttributeTargets.Interface | AttributeTargets.Enum)]
 	public class TokenizeAttribute : System.Attribute {

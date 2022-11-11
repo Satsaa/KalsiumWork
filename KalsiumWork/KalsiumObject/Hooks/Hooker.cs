@@ -1,19 +1,23 @@
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Object = UnityEngine.Object;
+namespace Kalsium {
 
-/// <summary> A hooker automatically hooks to the global hooks in Awake and OnDestroy. </summary>
-public abstract class Hooker : MonoBehaviour {
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using UnityEngine;
+	using Object = UnityEngine.Object;
 
-	protected virtual void Awake() {
-		Game.game.hooks.Hook(this);
-	}
+	/// <summary> A hooker automatically hooks to the global hooks in Awake and OnDestroy. </summary>
+	public abstract class Hooker : MonoBehaviour {
 
-	protected virtual void OnDestroy() {
-		if (Game.game) Game.game.hooks.Unhook(this);
+		protected virtual void Awake() {
+			Game.game.hooks.Hook(this);
+		}
+
+		protected virtual void OnDestroy() {
+			if (Game.game) Game.game.hooks.Unhook(this);
+		}
+
 	}
 
 }

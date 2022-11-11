@@ -1,14 +1,18 @@
 ﻿
-using System;
-using System.Linq;
-using UnityEngine;
+namespace Kalsium {
 
-[AttributeUsage(AttributeTargets.Field | AttributeTargets.Class)]
-public class AttributeLabelsAttribute : PropertyAttribute {
+	using System;
+	using System.Linq;
+	using UnityEngine;
 
-	public readonly GUIContent[] labels;
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Class)]
+	public class AttributeLabelsAttribute : PropertyAttribute {
 
-	public AttributeLabelsAttribute(params string[] labels) {
-		this.labels = labels.Select(v => new GUIContent(v)).ToArray();
+		public readonly GUIContent[] labels;
+
+		public AttributeLabelsAttribute(params string[] labels) {
+			this.labels = labels.Select(v => new GUIContent(v)).ToArray();
+		}
 	}
+
 }
