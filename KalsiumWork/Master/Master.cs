@@ -10,8 +10,10 @@ namespace Kalsium {
 	using UnityEngine.Serialization;
 	using Object = UnityEngine.Object;
 
+#pragma warning disable CS0612
 	public abstract class Master<TSelf> : Master<TSelf, INoneHook>
 		where TSelf : Master<TSelf, INoneHook> { }
+#pragma warning restore CS0612
 
 	public abstract partial class Master<TSelf, THook> : Master
 		where TSelf : Master<TSelf, THook>
@@ -25,8 +27,8 @@ namespace Kalsium {
 
 		public ObjectDict<RootModifier> modifiers = new();
 		public Hooks<THook> hooks = new();
-		public override Hooks rawHooks => hooks;
-		public override IObjectDict rawModifiers => modifiers;
+		public sealed override Hooks rawHooks => hooks;
+		public sealed override IObjectDict rawModifiers => modifiers;
 
 
 		protected override void OnCreate() {

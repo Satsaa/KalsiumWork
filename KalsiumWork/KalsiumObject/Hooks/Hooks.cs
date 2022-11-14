@@ -19,8 +19,8 @@ namespace Kalsium {
 		public class Scope : IDisposable {
 			public Scope() => active = true;
 
-			public Action onFinish;
-			public bool active;
+			internal Action onFinish;
+			internal bool active;
 
 			public void Dispose() {
 				if (!active) throw new InvalidOperationException("The scope has already been disposed.");
